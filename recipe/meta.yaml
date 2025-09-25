@@ -48,7 +48,7 @@ about:
     detect and produce OIDC credentials on a number of environments,
     including GitHub Actions, GitLab pipelines and Google Cloud.
   license: Apache-2.0
-  license: Apache
+  license_family: Apache
   license_file: LICENSE
   dev_url: https://github.com/di/id
   doc_url: https://github.com/di/id/blob/main/README.md
