@@ -1,19 +1,19 @@
 {% set version = "1.5.0" %}
-{% set python_min = "3.8" %}
+{% set name = "id" %}
 
 package:
-  name: id
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/i/id/id-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 292cb8a49eacbbdbce97244f47a97b4c62540169c976552e497fd57df0734c1d
 
 build:
   number: 0
   skip: true # [py<38]
   script:
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -23,6 +23,8 @@ requirements:
   run:
     - python
     - requests
+  run_constrained:
+    - ruff <0.8.2
 
 test:
   source_files:
