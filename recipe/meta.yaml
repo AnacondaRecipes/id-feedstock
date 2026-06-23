@@ -1,4 +1,4 @@
-{% set version = "1.5.0" %}
+{% set version = "1.6.1" %}
 {% set name = "id" %}
 
 package:
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 292cb8a49eacbbdbce97244f47a97b4c62540169c976552e497fd57df0734c1d
+  sha256: d0732d624fb46fd4e7bc4e5152f00214450953b9e772c182c1c22964def1a069
 
 build:
   number: 0
-  skip: true # [py<38]
+  skip: true  # [py<39]
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -23,6 +23,7 @@ requirements:
   run:
     - python
     - requests
+    - urllib3 >=2,<3
   run_constrained:
     - ruff <0.8.2
 
